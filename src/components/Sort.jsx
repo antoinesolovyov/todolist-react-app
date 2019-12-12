@@ -17,11 +17,11 @@ class Sort extends React.Component {
             <div className="sort">
                 <p>Sort</p>
                 <button id="date" onClick={this.handleButtonClick}>
-                    Sort on date{" "}
+                    Sort on date
                     {this.state.field === "date" && this.state.dir ? "↑" : "↓"}
                 </button>
                 <button id="task" onClick={this.handleButtonClick}>
-                    Sort on task{" "}
+                    Sort on task
                     {this.state.field === "task" && this.state.dir ? "↑" : "↓"}
                 </button>
             </div>

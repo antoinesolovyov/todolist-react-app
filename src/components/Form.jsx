@@ -1,5 +1,7 @@
 import React from "react";
 
+import Input from "./InputComponent/Input";
+
 class Form extends React.Component {
     state = { date: "", task: "", isError: false };
 
@@ -30,15 +32,15 @@ class Form extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input
+                <Input
                     id="date"
                     className={this.state.isError ? "input__alert" : ""}
                     type="date"
                     value={this.state.date}
                     onChange={this.handleChange}
-                    placeholder="Task"
+                    placeholder="Date"
                 />
-                <input
+                <Input
                     id="task"
                     className={this.state.isError ? "input__alert" : ""}
                     type="text"
