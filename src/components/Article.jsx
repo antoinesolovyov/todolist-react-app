@@ -49,16 +49,17 @@ class Article extends React.Component {
         if (!date && !task) {
             nextTasks = this.state.initialTasksBeforeFilter;
         } else if (date && !task) {
-            nextTasks = this.state.initialTasksBeforeFilter.filter(t =>
-                t.date.includes(date)
+            nextTasks = this.state.initialTasksBeforeFilter.filter(initTask =>
+                initTask.date.includes(date)
             );
         } else if (!date && task) {
-            nextTasks = this.state.initialTasksBeforeFilter.filter(t =>
-                t.task.includes(task)
+            nextTasks = this.state.initialTasksBeforeFilter.filter(initTask =>
+                initTask.task.includes(task)
             );
         } else {
             nextTasks = this.state.initialTasksBeforeFilter.filter(
-                t => t.date.includes(date) && t.task.includes(task)
+                initTask =>
+                    initTask.date.includes(date) && initTask.task.includes(task)
             );
         }
 
