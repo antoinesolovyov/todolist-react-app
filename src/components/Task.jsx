@@ -1,23 +1,28 @@
 import React from "react";
 
 class Task extends React.Component {
-    state = { checked: false, bg: "white" };
+    state = {
+        checked: false,
+        checkedClass: ""
+    };
 
     handleCheckboxChange = event => {
         this.setState({
             checked: event.target.checked
         });
 
-        if (this.state.checked) {
-            this.setState({
-                bg: "red"
-            });
+        if (event.target.checked) {
+            this.setState({checkedClass: "task__checked"});
         } else {
-            this.setState({
-                bg: "white"
-            });
+            this.setState({checkedClass: ""});
         }
     };
+
+    handleButtonClick = event => {
+        this.props.onDeleteTask(this.props.id);
+
+        event.preventDefault();
+    }
 
     render() {
         return (
@@ -31,10 +36,10 @@ class Task extends React.Component {
                 </div>
                 <div className="task">
                     <p className="task__date">{this.props.date}</p>
-                    <p className="task__description">{this.props.task}</p>
+                    <p className={"task__description", this.state.checkedClass}>{this.props.task}</p>
                 </div>
                 <div className="delete">
-                    <input type="button" value="–" />
+                    <input type="button" onClick={this.handleButtonClick} value="–" />
                 </div>
             </li>
         );

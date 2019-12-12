@@ -136,6 +136,10 @@ li {
   line-height: 24px;
 }
 
+.task__checked {
+  text-decoration: line-through;
+}
+
 .delete {
   float: left;
 
