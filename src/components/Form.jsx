@@ -3,30 +3,32 @@ import React from "react";
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { date: "", task: "" };
+        this.state = { date: "", task: "", isError: false };
 
-        this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleTaskChange = this.handleTaskChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleDateChange(event) {
-        this.setState({ date: event.target.value });
-    }
-
-    handleTaskChange(event) {
-        this.setState({ task: event.target.value });
-    }
+    handleChange = event => {
+        const { id, value } = event.target;
+        this.setState({ [id]: value, isError: false });
+    };
 
     handleSubmit = event => {
         const { date, task } = this.state;
-        const uuidv1 = require('uuid/v1');
+        const uuidv1 = require("uuid/v1");
 
-        this.props.onAddTask({
-            id: uuidv1(),
-            date,
-            task
-        });
+        if (date && task) {
+            this.props.onAddTask({
+                id: uuidv1(),
+                date,
+                task
+            });
+
+            this.setState({ isError: false });
+        } else {
+            this.setState({ isError: true });
+        }
 
         event.preventDefault();
     };
@@ -36,17 +38,19 @@ class Form extends React.Component {
             <>
                 <form onSubmit={this.handleSubmit}>
                     <input
-                        className="date__input"
+                        id="date"
+                        className={this.state.isError ? "input__alert" : ""}
                         type="date"
                         value={this.state.date}
-                        onChange={this.handleDateChange}
+                        onChange={this.handleChange}
                         placeholder="Task"
                     />
                     <input
-                        className="task__input"
+                        id="task"
+                        className={this.state.isError ? "input__alert" : ""}
                         type="text"
                         value={this.state.task}
-                        onChange={this.handleTaskChange}
+                        onChange={this.handleChange}
                         placeholder="Task"
                     />
                     <input

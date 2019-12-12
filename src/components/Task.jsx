@@ -32,7 +32,8 @@ class Task extends React.Component {
                     <p className="task__date">{this.props.date}</p>
                     <p
                         className={
-                            ("task__description", this.state.checked ? "task__checked" : "")
+                            ("task__description",
+                            this.state.checked ? "task__checked" : "")
                         }
                     >
                         {this.props.task}
