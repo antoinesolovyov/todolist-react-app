@@ -2,17 +2,12 @@ import React from "react";
 
 import Form from "./Form";
 import List from "./List";
-
-const myTasks = [];
+import Sort from "./Sort";
 
 class Article extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            tasks: myTasks
-        };
-    }
+    state = {
+        tasks: []
+    };
 
     handleAddTask = data => {
         const nextTasks = [data, ...this.state.tasks];
@@ -24,6 +19,13 @@ class Article extends React.Component {
         this.setState({ tasks: nextTasks });
     };
 
+    handleSortTasks = (field, dir) => {
+        const nextTasks = this.state.tasks.sort((task1, task2) =>
+            task1[field] > task2[field] ? (dir ? 1 : -1) : dir ? -1 : 1
+        );
+        this.setState({ tasks: nextTasks });
+    };
+
     render() {
         return (
             <>
@@ -32,6 +34,7 @@ class Article extends React.Component {
                     tasks={this.state.tasks}
                     onDeleteTask={this.handleDeleteTask}
                 />
+                <Sort onSortTasks={this.handleSortTasks} />
             </>
         );
     }
