@@ -4,23 +4,20 @@ import Task from "./Task";
 
 class List extends React.Component {
     render() {
-        const listElement = [];
-
-        for (let i = 0; i < this.props.tasks.length; i++) {
-            listElement.push(
+        const list = () =>
+            this.props.tasks.map(task => (
                 <Task
-                    key={this.props.tasks[i].id}
-                    id={this.props.tasks[i].id}
-                    date={this.props.tasks[i].date}
-                    task={this.props.tasks[i].task}
+                    key={task.id}
+                    id={task.id}
+                    date={task.date}
+                    task={task.task}
                     onDeleteTask={this.props.onDeleteTask}
                 />
-            );
-        }
+            ));
 
         return (
             <div className="task__list">
-                <ul>{listElement}</ul>
+                <ul>{list()}</ul>
             </div>
         );
     }

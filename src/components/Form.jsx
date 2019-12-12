@@ -20,9 +20,10 @@ class Form extends React.Component {
 
     handleSubmit = event => {
         const { date, task } = this.state;
+        const uuidv1 = require('uuid/v1');
 
         this.props.onAddTask({
-            id: +new Date(),
+            id: uuidv1(),
             date,
             task
         });
@@ -32,7 +33,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         className="date__input"
@@ -54,7 +55,7 @@ class Form extends React.Component {
                         value="Add task"
                     />
                 </form>
-            </React.Fragment>
+            </>
         );
     }
 }
