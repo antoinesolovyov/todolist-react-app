@@ -22,25 +22,25 @@ class Article extends React.Component {
     handleDeleteTask = id => {
         const nextTasks = [];
 
-        console.log(id);
-
         for (let i = 0; i < this.state.tasks.length; i++) {
-            
             if (this.state.tasks[i].id === id) {
-                console.log("Deleted task:", this.state.tasks[i]);
-            } else {
-                nextTasks.push(this.state.tasks[i]);
+                continue;
             }
+
+            nextTasks.push(this.state.tasks[i]);
         }
 
         this.setState({ tasks: nextTasks });
-    }
+    };
 
     render() {
         return (
             <React.Fragment>
                 <Form onAddTask={this.handleAddTask} />
-                <List tasks={this.state.tasks} onDeleteTask={this.handleDeleteTask} />
+                <List
+                    tasks={this.state.tasks}
+                    onDeleteTask={this.handleDeleteTask}
+                />
             </React.Fragment>
         );
     }
