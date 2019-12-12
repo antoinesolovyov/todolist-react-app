@@ -54,6 +54,7 @@ form {
 .task__list {
     float: left;
     width: 320px;
+    min-height: 320px;
     margin: 8px;
 }
 
@@ -124,14 +125,4 @@ li {
     padding: 0px;
     width: 24px;
     height: 24px;
-}
-
-.sort {
-    float: left;
-    width: 262px;
-    height: 48px;
-    margin: 8px;
-    padding: 0px;
-    border: none;
-    outline: 1px solid black;
 }

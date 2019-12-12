@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Sort.css";
+
 class Sort extends React.Component {
     state = { field: "date", dir: false };
 

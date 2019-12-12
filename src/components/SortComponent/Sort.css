@@ -1,0 +1,9 @@
+.sort {
+    float: left;
+    width: 262px;
+    height: 48px;
+    margin: 8px;
+    padding: 0px;
+    border: none;
+    outline: 1px solid black;
+}
