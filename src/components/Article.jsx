@@ -8,19 +8,19 @@ import Filter from "./FilterComponent/Filter";
 class Article extends React.Component {
     state = {
         tasks: [],
-        all: []
+        initialTasksBeforeFilter: []
     };
 
     handleAddTask = data => {
         const nextTasks = [data, ...this.state.tasks];
 
-        this.setState({ tasks: nextTasks, all: nextTasks });
+        this.setState({ tasks: nextTasks, initialTasksBeforeFilter: nextTasks });
     };
 
     handleDeleteTask = id => {
         const nextTasks = this.state.tasks.filter(task => task.id !== id);
 
-        this.setState({ tasks: nextTasks, all: nextTasks });
+        this.setState({ tasks: nextTasks, initialTasksBeforeFilter: nextTasks });
     };
 
     handleSortTasks = (field, dir) => {
@@ -35,13 +35,13 @@ class Article extends React.Component {
         let nextTasks;
 
         if (!date && !task) {
-            nextTasks = this.state.all;
+            nextTasks = this.state.initialTasksBeforeFilter;
         } else if (date && !task) {
-            nextTasks = this.state.all.filter(t => t.date.includes(date));
+            nextTasks = this.state.initialTasksBeforeFilter.filter(t => t.date.includes(date));
         } else if (!date && task) {
-            nextTasks = this.state.all.filter(t => t.task.includes(task));
+            nextTasks = this.state.initialTasksBeforeFilter.filter(t => t.task.includes(task));
         } else {
-            nextTasks = this.state.all.filter(
+            nextTasks = this.state.initialTasksBeforeFilter.filter(
                 t => t.date.includes(date) && t.task.includes(task)
             );
         }
