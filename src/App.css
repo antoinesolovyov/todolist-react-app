@@ -1,162 +1,166 @@
 header {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  height: 120px;
+    height: 120px;
 }
 
 h1 {
-  width: 100%;
+    width: 100%;
 
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 
-  font-family: Roboto;
-  font-weight: 200;
+    font-family: Roboto;
+    font-weight: 200;
 
-  text-align: center;
+    text-align: center;
 }
 
 footer {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  width: 100%;
+    width: 100%;
 
-  height: 120px;
+    height: 120px;
 }
 
 p {
-  width: 100%;
+    width: 100%;
 
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 200;
-  
-  text-align: center;
-  line-height: 24px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 200;
+
+    text-align: center;
+    line-height: 24px;
 }
 
 form {
-  float: left;
+    float: left;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  width: 320px;
+    width: 320px;
 }
 
 input {
-  width: 228px;
-  height: 46px;
+    width: 228px;
+    height: 46px;
 
-  padding: 0px 16px;
-  margin: 8px;
+    padding: 0px 16px;
+    margin: 8px;
 
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 200;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 200;
 
-  outline: none;
-  border: 1px solid black;
+    outline: none;
+    border: 1px solid black;
+}
+
+.input__alert {
+    border: 1px solid red;
 }
 
 .add__task {
-  width: 262px;
-  height: 48px;
+    width: 262px;
+    height: 48px;
 
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
 
 .task__list {
-  float: left;
+    float: left;
 
-  width: 320px;
+    width: 320px;
 
-  margin: 8px;
+    margin: 8px;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 li {
-  display: flex;
+    display: flex;
 
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 
-  outline: 1px solid black;
+    outline: 1px solid black;
 }
 
 .checkbox {
-  float: left;
+    float: left;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
 }
 
 .checkbox input {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 
-  width: 12px;
-  height: 12px;
+    width: 12px;
+    height: 12px;
 }
 
 .task {
-  float: left;
+    float: left;
 
-  width: 224px;
-  height: 48px;
+    width: 224px;
+    height: 48px;
 }
 
 .task p {
-  text-align: left;
+    text-align: left;
 }
 
 .task__date {
-  font-size: 12px;
-  line-height: 24px;
+    font-size: 12px;
+    line-height: 24px;
 }
 
 .task__description {
-  font-size: 16px;
-  line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .task__checked {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 .delete {
-  float: left;
+    float: left;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
 }
 
 .delete input {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 
-  border: 1px solid black;
+    border: 1px solid black;
 }
