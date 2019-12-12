@@ -7,27 +7,39 @@ import Filter from "./FilterComponent/Filter";
 
 class Article extends React.Component {
     state = {
-        tasks: [],
-        all: []
+        tasks: JSON.parse(localStorage.getItem("tasks")),
+        initialTasksBeforeFilter: JSON.parse(localStorage.getItem("tasks"))
     };
 
     handleAddTask = data => {
-        const nextTasks = [data, ...this.state.tasks];
+        const nextTasks = [data, ...this.state.initialTasksBeforeFilter];
 
-        this.setState({ tasks: nextTasks, all: nextTasks });
+        localStorage.setItem("tasks", JSON.stringify(nextTasks));
+        this.setState({
+            tasks: nextTasks,
+            initialTasksBeforeFilter: nextTasks
+        });
     };
 
     handleDeleteTask = id => {
-        const nextTasks = this.state.tasks.filter(task => task.id !== id);
+        const nextTasks = this.state.initialTasksBeforeFilter.filter(
+            task => task.id !== id
+        );
 
-        this.setState({ tasks: nextTasks, all: nextTasks });
+        localStorage.setItem("tasks", JSON.stringify(nextTasks));
+        this.setState({
+            tasks: nextTasks,
+            initialTasksBeforeFilter: nextTasks
+        });
     };
 
     handleSortTasks = (field, dir) => {
-        const nextTasks = this.state.tasks.sort((task1, task2) =>
-            task1[field] > task2[field] ? (dir ? 1 : -1) : dir ? -1 : 1
+        const nextTasks = this.state.initialTasksBeforeFilter.sort(
+            (task1, task2) =>
+                task1[field] > task2[field] ? (dir ? 1 : -1) : dir ? -1 : 1
         );
 
+        localStorage.setItem("tasks", JSON.stringify(nextTasks));
         this.setState({ tasks: nextTasks });
     };
 
@@ -35,14 +47,19 @@ class Article extends React.Component {
         let nextTasks;
 
         if (!date && !task) {
-            nextTasks = this.state.all;
+            nextTasks = this.state.initialTasksBeforeFilter;
         } else if (date && !task) {
-            nextTasks = this.state.all.filter(t => t.date.includes(date));
+            nextTasks = this.state.initialTasksBeforeFilter.filter(initTask =>
+                initTask.date.includes(date)
+            );
         } else if (!date && task) {
-            nextTasks = this.state.all.filter(t => t.task.includes(task));
+            nextTasks = this.state.initialTasksBeforeFilter.filter(initTask =>
+                initTask.task.includes(task)
+            );
         } else {
-            nextTasks = this.state.all.filter(
-                t => t.date.includes(date) && t.task.includes(task)
+            nextTasks = this.state.initialTasksBeforeFilter.filter(
+                initTask =>
+                    initTask.date.includes(date) && initTask.task.includes(task)
             );
         }
 
