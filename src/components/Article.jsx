@@ -19,12 +19,20 @@ class Article extends React.Component {
         this.setState({ tasks: nextTasks });
     };
 
+    handleDeleteTask = id => {
+        const nextTasks = this.state.tasks.filter(task => task.id !== id);
+        this.setState({ tasks: nextTasks });
+    };
+
     render() {
         return (
-            <React.Fragment>
+            <>
                 <Form onAddTask={this.handleAddTask} />
-                <List tasks={this.state.tasks} />
-            </React.Fragment>
+                <List
+                    tasks={this.state.tasks}
+                    onDeleteTask={this.handleDeleteTask}
+                />
+            </>
         );
     }
 }

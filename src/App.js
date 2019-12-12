@@ -6,11 +6,11 @@ import './App.css';
 
 function App() {
   return (
-    <React.Fragment>
+    <>
         <Header />
         <Article />
         <Footer />
-    </React.Fragment>
+    </>
   );
 }
 
